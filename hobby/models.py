@@ -1,0 +1,1 @@
+from core.db_base import Base
