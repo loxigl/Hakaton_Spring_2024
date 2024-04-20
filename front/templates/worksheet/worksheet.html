@@ -13,16 +13,22 @@
 <div class="container">
     <div class="yellow__block"><p>RANDOME COFFE</p></div>
     <div class="form__container">
-        <form class="anketa" onsubmit="event.preventDefault(); submitForm();">
+        <form class="anketa" method="post" action="#">
             <h1>Заполните анкету</h1>
 
-            <input class="input__style" name="given_name" placeholder="Имя" value={{ current_user.given_name }}>
-            <input class="input__style" name="family_name" placeholder="Фамилия" value={{ current_user.family_name }}>
-            <input class="input__style" name="phone_number" placeholder="Телефон">
-            <input type="datetime-local" class="input__style" name="chosen_datetime" placeholder="Время встречи">
+            <input class="input__style" name="name" placeholder="Имя" value={{ current_user.given_name }}>
+            <input class="input__style" name="name" placeholder="Фамилия" value={{ current_user.family_name }}>
+            <div class="contacts"> <input class="input__style__contact" name="name" placeholder="Телефон">
+                <section class="checkbox-contacts">
+                 <div class="item-contacts"><input name="radio" id="radio20" type="checkbox"><label for="radio20"><img src="css/img/vk .png"> </label></div> 
+                 <div id="cont-2" class="item-contacts"><input name="radio" id="radio21" type="checkbox"><label for="radio21"><img src="css/img/tg.png"></label></div>
+                 <div id="cont-3" class="item-contacts"><input name="radio" id="radio22" type="checkbox"><label for="radio22"><img src="css/img/whatsapp.png"></label></div>
+                </section>
+            </div>
+            <input type="datetime-local" class="input__style" name="name" placeholder="Время встречи">
 
-            <select class="input__style" name="meeting_duration" >
-                <option selected disabled hidden>Длительность встречи:</option>
+            <select class="input__style">
+                <option>Длительность встречи:</option>
                 <option>до 1 часа</option>
                 <option>от 1 часа до 2 часов</option>
                 <option>от 2 часов</option>
@@ -55,19 +61,16 @@
                 </section>
             </div>
             <div class="format">
-                <div class="rad"><input name="radio2" id="radio12" type="radio"><label for="radio12">Онлайн</label>
-                </div>
-                <div class="rad"><input name="radio2" id="radio13" type="radio"><label for="radio13">Оффлайн</label>
+                <div class="rad"><input name="radio" id="radio12" type="radio"><label for="radio12">Онлайн</label></div>
+                <div class="rad"><input name="radio" id="radio13" type="radio"><label for="radio13">Оффлайн</label>
                 </div>
             </div>
 
-            <a>
-                <button class="subm" id="submit " type="submit">Далее</button>
+            <a href="#">
+                <button class="subm">Далее</button>
             </a>
         </form>
     </div>
-
 </div>
-<script src="{{ url_for('static',path='worksheet/js/') }}script.js"></script>
 </body>
 </html>
