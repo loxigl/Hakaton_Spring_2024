@@ -25,6 +25,33 @@
                  <div id="cont-3" class="item-contacts"><input name="radio" id="radio22" type="checkbox"><label for="radio22"><img src="css/img/whatsapp.png"></label></div>
                 </section>
             </div>
+
+<script>
+                document.querySelectorAll('input[type="checkbox"]').forEach(function(checkbox) {
+                    checkbox.addEventListener('change', function() {
+                        var inputText = this.parentNode.querySelector('input[type="text"]');
+                        if (inputText === null && this.checked) {
+                        var input = document.createElement('input');
+                        input.setAttribute('type', 'text');
+                        input.setAttribute('name', 'contact');
+                        input.setAttribute('placeholder', 'Введите данные');
+                        input.style.width = '500px';
+                        input.style.height = '100px';
+                        input.style.fontSize = '35px';
+                        input.style.border = 'solid 4px #E5E5E5';
+                        input.style.borderRadius = '50px';
+                        input.style.marginTop = '-100px';
+                        input.style.marginLeft = '80px';
+                        input.style.paddingLeft = '20px';
+                        this.parentNode.appendChild(input);
+
+                        } else if (!this.checked) {
+                            this.parentNode.removeChild(inputText);
+                        }
+                    });
+                });
+            </script>
+            
             <input type="datetime-local" class="input__style" name="name" placeholder="Время встречи">
 
             <select class="input__style">
