@@ -21,8 +21,6 @@ venv
 docs.zip
 archive.zip
 .venv
-.env
-client_secret.json
 
 # vim temporary files
 *~
@@ -31,3 +29,5 @@ client_secret.json
 
 # macOS
 .DS_Store
+/client_secret.json
+/.env
