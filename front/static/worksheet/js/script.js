@@ -48,8 +48,6 @@ async function submitForm() {
     }
     let selectedHobbies = Array.from(document.querySelectorAll('input[name="radio"]:checked'), input => input.nextElementSibling.textContent);
     let selectedFormat = document.querySelector('input[name="radio2"]:checked').nextElementSibling.textContent;
-
-    // Добавить текст из выбранных радио-кнопок в JSON
     formJson['hobby'] = selectedHobbies;
     formJson['format'] = selectedFormat;
     delete formJson['radio'];
@@ -57,6 +55,7 @@ async function submitForm() {
     let userId = await fetch(base + '/user/id').then(response => response.json()).then(data => data.user_id)
     let userHasWorksheet = await checkUserWorksheet();
     let method = userHasWorksheet ? 'PUT' : 'POST';
+    console.log(method)
     let response = await fetch(base + '/worksheet/' + userId, {
         method: method,
         headers: {
@@ -73,14 +72,22 @@ async function submitForm() {
 }
 
 async function checkUserWorksheet() {
-    fetch(base + '/user/id')
+    let result = false;
+    await fetch(base + '/user/id')
         .then(response => response.json())
         .then(data => {
             let userId = data.user_id;
-            fetch(base + '/worksheet/' + userId)
-                .then(response => response.json())
-                .then(data => {
-                    return data;
-                });
+            return fetch(base + '/worksheet/' + userId);
+        })
+        .then(response => {
+            if (response.ok) {
+                result = true;
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
         });
+    console.log(result)
+    return result;
+
 }

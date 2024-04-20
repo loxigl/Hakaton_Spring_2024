@@ -13,7 +13,7 @@
 <div class="container">
     <div class="yellow__block"><p>RANDOME COFFE</p></div>
     <div class="form__container">
-        <form class="anketa">
+        <form class="anketa" onsubmit="event.preventDefault(); submitForm()">
             <h1>Заполните анкету</h1>
 
             <input class="input__style" name="given_name" placeholder="Имя" value={{ current_user.given_name }}>
@@ -21,32 +21,32 @@
             <div class="contacts"><input class="input__style__contact" name="phone_number" placeholder="Телефон">
                 <section class="checkbox-contacts">
                     <div class="item-contacts"><input name="radio" id="radio20" type="checkbox"><label
-                            for="radio20"><img src="{{  url_for('static',path='') }}/img/vk .png"> </label></div>
+                            for="radio20"><img src="{{ url_for('static',path='') }}/img/vk .png"> </label></div>
                     <div id="cont-2" class="item-contacts"><input name="radio" id="radio21" type="checkbox"><label
-                            for="radio21"><img src="{{  url_for('static',path='') }}/img/tg.png"></label></div>
+                            for="radio21"><img src="{{ url_for('static',path='') }}/img/tg.png"></label></div>
                     <div id="cont-3" class="item-contacts"><input name="radio" id="radio22" type="checkbox"><label
-                            for="radio22"><img src="{{  url_for('static',path='') }}/img/whatsapp.png"></label></div>
+                            for="radio22"><img src="{{ url_for('static',path='') }}/img/whatsapp.png"></label></div>
                 </section>
             </div>
 
-<script>
-                document.querySelectorAll('input[type="checkbox"]').forEach(function(checkbox) {
-                    checkbox.addEventListener('change', function() {
+            <script>
+                document.querySelectorAll('input[type="checkbox"]').forEach(function (checkbox) {
+                    checkbox.addEventListener('change', function () {
                         var inputText = this.parentNode.querySelector('input[type="text"]');
                         if (inputText === null && this.checked) {
-                        var input = document.createElement('input');
-                        input.setAttribute('type', 'text');
-                        input.setAttribute('name', 'contact');
-                        input.setAttribute('placeholder', 'Введите данные');
-                        input.style.width = '500px';
-                        input.style.height = '100px';
-                        input.style.fontSize = '35px';
-                        input.style.border = 'solid 4px #E5E5E5';
-                        input.style.borderRadius = '50px';
-                        input.style.marginTop = '-100px';
-                        input.style.marginLeft = '80px';
-                        input.style.paddingLeft = '20px';
-                        this.parentNode.appendChild(input);
+                            var input = document.createElement('input');
+                            input.setAttribute('type', 'text');
+                            input.setAttribute('name', 'contact');
+                            input.setAttribute('placeholder', 'Введите данные');
+                            input.style.width = '500px';
+                            input.style.height = '100px';
+                            input.style.fontSize = '35px';
+                            input.style.border = 'solid 4px #E5E5E5';
+                            input.style.borderRadius = '50px';
+                            input.style.marginTop = '-100px';
+                            input.style.marginLeft = '80px';
+                            input.style.paddingLeft = '20px';
+                            this.parentNode.appendChild(input);
 
                         } else if (!this.checked) {
                             this.parentNode.removeChild(inputText);
@@ -54,7 +54,7 @@
                     });
                 });
             </script>
-            
+
             <input type="datetime-local" class="input__style" name="chosen_datetime" placeholder="Время встречи">
 
             <select class="input__style" name="meeting_duration">
@@ -65,6 +65,18 @@
             </select>
             <div class="hobby">
                 <section class="radio-section">
+
+                    {% for hobby in hobbys %}
+                        {% if loop.index==0 %}
+                            <div id="inp-1" class="radio-item"><input name="radio" id="radio1" type="checkbox"><label
+                                    for="radio1">{{ hobby }}</label></div>
+                        {% else %}
+                            <div class="radio-item"><input name="radio" id="radio{{ loop.index }}"
+                                                           type="checkbox"><label
+                                    for="radio{{ loop.index }}">{{ hobby }}</label>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
                     <div id="inp-1" class="radio-item"><input name="radio" id="radio1" type="checkbox"><label
                             for="radio1">#спорт</label></div>
                     <div class="radio-item"><input name="radio" id="radio2" type="checkbox"><label for="radio2">#искусство</label>
@@ -83,7 +95,8 @@
                             for="radio8">#экстрим</label></div>
                     <div class="radio-item"><input name="radio" id="radio9" type="checkbox"><label for="radio9">#садоводство</label>
                     </div>
-                    <div class="radio-item"><input name="radio" id="radio10" type="checkbox"><label for="radio10">#иностранные языки</label></div>
+                    <div class="radio-item"><input name="radio" id="radio10" type="checkbox"><label for="radio10">#иностранные
+                        языки</label></div>
                     <div class="radio-item"><input name="radio" id="radio11" type="checkbox"><label for="radio11">#животные</label>
                     </div>
 
