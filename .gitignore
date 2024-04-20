@@ -29,3 +29,5 @@ archive.zip
 
 # macOS
 .DS_Store
+/client_secret.json
+/.env

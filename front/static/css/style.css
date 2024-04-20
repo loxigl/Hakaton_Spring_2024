@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+*,*::before,*::after{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+body, html{
+    height: auto;
+    width: 100%;
+    font-family: "Montserrat";
+}
+
+.main{
+    position: relative;
+    display: flex;
+    width: 100%;
+}
+
+.header{
+    display: flex;
+}
+
+.logo{
+    width: 88px;
+    height: 88px;
+    
+    margin-top: 40px;
+}
+.logo img{
+    width: 100%;
+    height: 100%;
+}
+
+.header{
+    display: flex;
+    margin-left: 70px;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    color: #303030;
+}
+.header__list{
+    list-style: none;
+    display: flex;
+    margin-top: 60px;
+    justify-content: space-between;
+    width: 600px;
+    font-size: 24px;
+    margin-left: 100px;
+}
+.text{
+    margin-top: 40px;
+    margin-left: 200px;
+}
+.text h1{
+    font-size: 90px;
+    width: 584px;
+}
+.text p{
+    margin-top: 50px;
+    font-size: 45px;
+    width: 657px;
+}
+
+
+.right-container {
+    width: 863px;
+    height: auto;
+    margin-left: auto;
+}
+.main-button{
+    width: 591px;
+    height: 147px;
+    background-color: #FFDD00;
+    border: solid #000 5px;
+    font-family: 'Montserrat';
+    font-size: 45px;
+    font-weight: 500;
+    border-radius: 100px;
+    margin-top: 70px;
+    transition: 0.5s;
+}
+.main-button:hover{
+    transition: 0.5s;
+    border: solid #FFDD00 10px;
+    background-color: #fff;
+    cursor: pointer;
+    
+}
+
+
+
+
+.image-1{
+    width: 856px;
+    height: 948px;
+}
+.image-1 img{
+    width: 100%;
+    height: 100%;
+}
+.info__container{
+    position: relative;
+    width: 100%;
+    height: auto;
+    height: 1744px;
+    background-color: #FFDD00;
+    margin-top: 150px;
+}
+.info{
+    display: flex;
+}
+.info-left{
+    margin-left: 100px;
+    margin-top: 100px;
+}
+.info-left h1{
+    font-size: 100px;
+    font-weight: 700;
+    width: 748px;
+}
+
+.num{
+    margin-top: 60px;
+}
+.num p{
+    font-size: 40px;
+    width: 817px;
+    margin-top: 20px;
+}
+.info-right{
+margin-top: 100px;
+margin-left: 200px;
+}
+
+.info__button{
+    width: 516px;
+    height: 116px;
+    border-radius: 100px;
+    background-color: #000;
+    color: #fff;
+    font-family: 'Montserrat';
+    font-size: 38px;
+    text-align: center;
+    transition: 0.5s;
+}
+.info__button:hover{
+    background-color: #fff;
+    color: #000;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.but{
+    width: 516px;
+    height: 116px;
+    margin: 0 auto;
+    margin-top: 120px;
+    margin-bottom: 40px;
+}
+
+.line{
+    margin-top: 40px;
+}
