@@ -3,7 +3,12 @@
         <img src="{{ url_for('static',path='img/logo.png') }}" alt="#">
     </div>
     <ul class="header__list">
-        <li><a href="{{ url_for('worksheet') }}">Заполнить анкету</a></li>
+        <li><a href="{{ url_for('worksheet') }}">{% if not current_user.worksheet %}
+            Заполнить анкету
+        {% else %}
+            Редактировать анкету
+        {% endif %}
+        </a></li>
         {% if current_user %}
             <li><a href="#">Посмотреть профили</a></li>
         {% endif %}

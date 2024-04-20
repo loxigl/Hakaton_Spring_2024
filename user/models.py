@@ -14,4 +14,4 @@ class User(Base):
     family_name = Column(String)
     photo_url = Column(String)
 
-    Worksheet = relationship("Worksheet", back_populates="User")
+    worksheet = relationship("Worksheet", uselist=False, back_populates="user")

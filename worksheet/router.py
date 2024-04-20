@@ -8,20 +8,20 @@ router = APIRouter()
 
 
 @router.get('/{user_id}')
-def read_worksheet(user_id: int, db=Depends(get_db)):
+def read_worksheet(user_id: str, db=Depends(get_db)):
     return get_worksheet(user_id, db)
 
 
 @router.post('/{user_id}')
-def create_new_worksheet(user_id: int, worksheet: WorksheetCreateDTO, db=Depends(get_db)):
+def create_new_worksheet(user_id: str, worksheet: WorksheetCreateDTO, db=Depends(get_db)):
     return create_worksheet(user_id, worksheet, db)
 
 
 @router.put('/{user_id}')
-def update_existing_worksheet(user_id: int, worksheet: WorksheetCreateDTO, db=Depends(get_db)):
+def update_existing_worksheet(user_id: str, worksheet: WorksheetCreateDTO, db=Depends(get_db)):
     return update_worksheet(user_id, worksheet, db)
 
 
 @router.delete('/{user_id}')
-def delete_existing_worksheet(user_id: int, db=Depends(get_db)):
+def delete_existing_worksheet(user_id: str, db=Depends(get_db)):
     return delete_worksheet(user_id, db)

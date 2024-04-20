@@ -8,8 +8,9 @@ class WorksheetDTO(BaseModel):
     family_name: str
     phone_number: str
     chosen_datetime: datetime
-    meeting_duration: datetime
+    meeting_duration: str
     hobby: list[str]
+    format: str
 
     class Config:
         from_attributes = True
