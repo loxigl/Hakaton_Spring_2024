@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static',path="css/style.css") }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <title>random coffee</title>
+</head>
+<body>
+
+<script>
+    const anchors = document.querySelectorAll('a[href*="#"]')
+
+    for (let anchor of anchors) {
+        anchor.addEventListener("click", function (event) {
+            event.preventDefault();
+            const blockID = anchor.getAttribute('href')
+            document.querySelector('' + blockID).scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            })
+        })
+    }
+</script>
+
+
+<div class="main">
+    <div class="left__container">
+        {% include 'header.html' %}
+        <div class="text">
+            <h1>Больше, чем просто работа:</h1>
+            <p>сотрудничайте, общайтесь, оставайтесь на связи</p>
+            <a href="#info__container">
+                <button class="main-button">Как это работает</button>
+            </a>
+        </div>
+    </div>
+    <div class="right-container">
+        <div class="image-1">
+            <img src="{{ url_for('static',path='img/coffee.png') }}" alt="#">
+        </div>
+    </div>
+</div>
+<div id="info__container" class="info__container">
+    <img class="line" src="{{ url_for('static',path='img/line.png') }}">
+    <div class="info">
+        <div class="info-left">
+            <h1>Как работает сервис</h1>
+            <div class="num">
+                <img src="{{ url_for('static',path='img/number-1.png') }}" alt="#">
+                <p>Пользователь авторизируется с помощью гугл аккаунта и заполняет анкету своими данными.</p>
+            </div>
+            <div class="num">
+                <img src="{{ url_for('static',path='img/number-2.png') }}" alt="#">
+                <p>На основе выбранных интересов и времени встречи подбирается партнёр.</p>
+            </div>
+            <div class="num">
+                <img src="{{ url_for('static',path='img/number-3.png') }}" alt="#">
+                <p>В зависимости выбранного формата встречи, сотрудники созваниваются или встречаются в заранее
+                    обговоренном месте.</p>
+            </div>
+        </div>
+        <div class="info-right">
+            <img src="{{ url_for('static',path='img/phone.png') }}">
+        </div>
+    </div>
+    <div class="but">
+        <a href="reg">
+            <button class="info__button">Заполнить анкету</button>
+        </a>
+    </div>
+    <img class="line" src="{{ url_for('static',path='img/line.png') }}">
+</div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static',path='worksheet/css/') }}anketa.css">
+    <link rel="stylesheet" href="{{ url_for('static',path="css/style.css") }}">
+    <title>random coffee</title>
+</head>
+<body>
+{% include 'header.html' %}
+<div class="container">
+    <div class="yellow__block"><p>RANDOME COFFE</p></div>
+    <div class="form__container">
+        <form class="anketa" method="post" action="#">
+            <h1>Заполните анкету</h1>
+
+            <input class="input__style" name="name" placeholder="Имя" value={{ current_user.given_name }}>
+            <input class="input__style" name="name" placeholder="Фамилия" value={{ current_user.family_name }}>
+            <input class="input__style" name="name" placeholder="Телефон">
+            <input type="datetime-local" class="input__style" name="name" placeholder="Время встречи">
+
+            <select class="input__style">
+                <option>Длительность встречи:</option>
+                <option>до 1 часа</option>
+                <option>от 1 часа до 2 часов</option>
+                <option>от 2 часов</option>
+            </select>
+            <div class="hobby">
+                <section class="radio-section">
+                    <div id="inp-1" class="radio-item"><input name="radio" id="radio1" type="checkbox"><label
+                            for="radio1">#спорт</label></div>
+                    <div class="radio-item"><input name="radio" id="radio2" type="checkbox"><label for="radio2">#искусство</label>
+                    </div>
+                    <div class="radio-item"><input name="radio" id="radio3" type="checkbox"><label for="radio3">#творчество</label>
+                    </div>
+                    <div class="radio-item"><input name="radio" id="radio4" type="checkbox"><label
+                            for="radio4">#музыка</label></div>
+                    <div class="radio-item"><input name="radio" id="radio5" type="checkbox"><label for="radio5">#литература</label>
+                    </div>
+                    <div class="radio-item"><input name="radio" id="radio6" type="checkbox"><label for="radio6">#путешествия</label>
+                    </div>
+                    <div class="radio-item"><input name="radio" id="radio7" type="checkbox"><label for="radio7">#кулинария</label>
+                    </div>
+                    <div class="radio-item"><input name="radio" id="radio8" type="checkbox"><label
+                            for="radio8">#экстрим</label></div>
+                    <div class="radio-item"><input name="radio" id="radio9" type="checkbox"><label for="radio9">#садоводство</label>
+                    </div>
+                    <div class="radio-item"><input name="radio" id="radio10" type="checkbox"><label for="radio10">#иностранные
+                        языки</label></div>
+                    <div class="radio-item"><input name="radio" id="radio11" type="checkbox"><label for="radio11">#животные</label>
+                    </div>
+
+                </section>
+            </div>
+            <div class="format">
+                <div class="rad"><input name="radio" id="radio12" type="radio"><label for="radio12">Онлайн</label></div>
+                <div class="rad"><input name="radio" id="radio13" type="radio"><label for="radio13">Оффлайн</label>
+                </div>
+            </div>
+
+            <a href="#">
+                <button class="subm">Далее</button>
+            </a>
+        </form>
+    </div>
+</div>
+</body>
+</html>

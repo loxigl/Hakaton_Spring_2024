@@ -1,0 +1,157 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+a {
+	text-decoration: none;
+}
+
+
+body {
+	font-family: 'Montserrat';
+	
+	
+}
+.container{
+    display: flex;
+}
+.yellow__block{
+    margin-top: 150px;
+    margin-left: 100px;
+    padding-left: 60px;
+    padding-top: 160px;
+    padding-right: 60px;
+    width: 268px;
+    height: 1275px;
+    background-color: #FFDD00;
+    border-radius: 50px;
+    
+}
+
+.yellow__block p{
+    color: #fff;
+    opacity: 80%;
+    font-size: 100px;
+    font-weight: 900;
+    display: inline-block;
+    transform: scaleY(-1) scaleX(-1)  rotate(360deg);
+    writing-mode: vertical-rl;
+    
+}
+
+.form__container{
+    margin-top: 170px;
+    margin-left: 200px;
+}
+.anketa{
+    display: flex;
+    flex-direction: column;
+}
+.anketa h1{
+    font-size: 65px;
+    font-weight: 800;
+}
+
+.radio-section {
+    margin-top: 50px;
+    height: 300px;
+	display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.input__style{
+    margin-top: 40px;
+    width: 1015px;
+    height: 100px;
+    border-radius: 50px;
+    border: solid #E5E5E5 4px;
+    font-size: 35px;
+    font-weight: 600;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+#inp-1{
+    
+    margin-left: -20px;
+}
+.radio-item [type="checkbox"] {
+	display: none;
+}
+.rad [type="radio"] {
+	display: none;
+}
+.radio-item label {
+	padding: 20px 60px;
+	background: #fff;
+	border: 2px solid #E5E5E5;
+	border-radius: 50px;
+	cursor: pointer;
+	font-size: 25px;
+	font-weight: 400;
+	min-width: 250px;
+	position: relative;
+	transition: 0.4s ease-in-out 0s;
+    color: #A9A9A9;
+    
+    
+}
+.rad label {
+	padding: 20px 60px;
+	background: #000;
+	border: 2px solid #E5E5E5;
+	border-radius: 50px;
+	cursor: pointer;
+	font-size: 35px;
+	font-weight: 400;
+	width: 400px;
+	position: relative;
+	transition: 0.4s ease-in-out 0s;
+    color: #fff;
+    margin-right: 50px;
+    
+    
+}
+
+.radio-item [type="checkbox"]:checked ~ label {
+	border-color: #FFDD00;
+}
+.radio-item [type="checkbox"]:checked ~ label::before {
+	opacity: 1;
+	visibility: visible;
+	transform: scale(1);
+}
+.rad [type="radio"]:checked ~ label {
+	border-color: #000;
+    background-color: #fff;
+    color: #000;
+}
+.rad [type="radio"]:checked ~ label::before {
+	opacity: 1;
+	visibility: visible;
+	transform: scale(1);
+}
+
+
+.format{
+    display: flex;
+    margin-top: 50px;
+}
+
+.subm{
+    width: 359px;
+    height: 94px;
+    margin-top: 50px;
+    margin-left:800px;
+    border-radius: 20px;
+    color: #000;
+    font-size: 38px;
+    font-family: 'Montserrat';
+    font-weight: 600;
+    border: none;
+    background-color: #FFDD00;
+}
