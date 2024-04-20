@@ -18,7 +18,13 @@
 
             <input class="input__style" name="name" placeholder="Имя" value={{ current_user.given_name }}>
             <input class="input__style" name="name" placeholder="Фамилия" value={{ current_user.family_name }}>
-            <input class="input__style" name="name" placeholder="Телефон">
+            <div class="contacts"> <input class="input__style__contact" name="name" placeholder="Телефон">
+                <section class="checkbox-contacts">
+                 <div class="item-contacts"><input name="radio" id="radio20" type="checkbox"><label for="radio20"><img src="css/img/vk .png"> </label></div> 
+                 <div id="cont-2" class="item-contacts"><input name="radio" id="radio21" type="checkbox"><label for="radio21"><img src="css/img/tg.png"></label></div>
+                 <div id="cont-3" class="item-contacts"><input name="radio" id="radio22" type="checkbox"><label for="radio22"><img src="css/img/whatsapp.png"></label></div>
+                </section>
+            </div>
             <input type="datetime-local" class="input__style" name="name" placeholder="Время встречи">
 
             <select class="input__style">
