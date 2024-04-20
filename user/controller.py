@@ -1,5 +1,7 @@
 from fastapi import HTTPException, Depends
+from starlette.responses import RedirectResponse
 
+from core.config import Config
 from core.session_maker import get_db
 from user.models import User
 
@@ -36,5 +38,7 @@ def create_user(user, db):
 def get_user(user_id, db=Depends(get_db)):
     user = db.query(User).filter(User.id == user_id).first()
     if user is None:
+        response = RedirectResponse(url="/")
+        response.delete_cookie(Config.user_cookie_key)
         raise HTTPException(status_code=404, detail="User not found")
     return user

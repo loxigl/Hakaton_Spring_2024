@@ -13,6 +13,7 @@ class Worksheet(Base):
     chosen_datetime = Column(DateTime)
     meeting_duration = Column(String)
     hobby = Column(ARRAY(String))
+    format = Column(String)
     user_id = Column(String, ForeignKey('users.id'))
 
-    User = relationship("User", back_populates="Worksheet")
+    user = relationship("User", back_populates="worksheet")
