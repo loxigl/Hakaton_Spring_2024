@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static',path='survey/css/opros.css') }}">
+    <title>random coffee</title>
+</head>
+<body>
+<form class="opros">
+    <div class="container">
+        <h1>Пожалуйста, оцените прошедшую встречу</h1>
+        <textarea placeholder="Отзыв..."></textarea>
+        <div class="simpl-rating">
+            <div class="simpl-rating__items">
+                <input id="simpl-rating__5" type="radio" class="simpl-rating__item" name="rating"
+                       value="Рейтинг: 5 из 5">
+                <label for="simpl-rating__5" class="simpl-rating__label"></label>
+
+                <input id="simpl-rating__4" type="radio" class="simpl-rating__item" name="rating"
+                       value="Рейтинг: 4 из 5">
+                <label for="simpl-rating__4" class="simpl-rating__label"></label>
+
+                <input id="simpl-rating__3" type="radio" class="simpl-rating__item" name="rating"
+                       value="Рейтинг: 3 из 5">
+                <label for="simpl-rating__3" class="simpl-rating__label"></label>
+
+                <input id="simpl-rating__2" type="radio" class="simpl-rating__item" name="rating"
+                       value="Рейтинг: 2 из 5">
+                <label for="simpl-rating__2" class="simpl-rating__label"></label>
+
+                <input id="simpl-rating__1" type="radio" class="simpl-rating__item" name="rating"
+                       value="Рейтинг: 1 из 5">
+                <label for="simpl-rating__1" class="simpl-rating__label"></label>
+            </div>
+        </div>
+        <button>Отправить</button>
+    </div>
+</form>
+</body>
+</html>

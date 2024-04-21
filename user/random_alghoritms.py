@@ -12,8 +12,8 @@ router = APIRouter()
 
 
 @router.get("/users_with_similar_meetings/")
-def get_users_with_similar_meetings(user: User = Depends(get_current_user), db: Session = Depends(get_db)):
-    user = db.query(User).filter(User.id == user.id).first()
+def get_users_with_similar_meetings(current_user=Depends(get_current_user), db: Session = Depends(get_db)):
+    user = current_user
     if user is None:
         raise HTTPException(status_code=404, detail="User not found")
     user_worksheet = user.worksheet
