@@ -1,6 +1,9 @@
+from datetime import datetime, timedelta
+
 from fastapi import Depends, HTTPException
 
 from core.session_maker import get_db
+from login.controller import get_current_user, get_current_user_safe
 from worksheet.dto import WorksheetCreateDTO, WorksheetDTO
 from worksheet.models import Worksheet
 
@@ -44,3 +47,12 @@ def delete_worksheet(user_id, db):
     db.delete(worksheet)
     db.commit()
     return {"detail": "Worksheet deleted"}
+
+
+def check_last_meeting_time(current_user=Depends(get_current_user_safe)):
+    if not current_user:
+        return
+    last_meeting_time = current_user.worksheet.chosen_datetime
+
+    if datetime.now() - last_meeting_time >= timedelta(hours=3):
+        raise HTTPException(status_code=307, detail="Redirect to survey", headers={"Location": "/survey"})

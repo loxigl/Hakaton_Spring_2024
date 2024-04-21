@@ -8,24 +8,27 @@ from core.session_maker import get_db
 from core.template_base import templates
 from login.controller import get_current_user, get_current_user_safe
 from user.random_alghoritms import get_users_with_similar_meetings
+from worksheet.controller import check_last_meeting_time
 
 router = APIRouter()
 
 
 @router.get("/")
-def index(request: Request, current_user=Depends(get_current_user_safe)):
+def index(request: Request, current_user=Depends(get_current_user_safe), last_meeting=Depends(check_last_meeting_time)):
     return templates.TemplateResponse("/main_page/index.html", {"request": request, "current_user": current_user})
 
 
 @router.get("/worksheet")
-def worksheet(request: Request, current_user=Depends(get_current_user_safe)):
+def worksheet(request: Request, current_user=Depends(get_current_user_safe),
+              last_meeting=Depends(check_last_meeting_time)):
     if not current_user:
         return RedirectResponse(url="/api/v1/login")
     return templates.TemplateResponse("/worksheet/worksheet.html", {"request": request, "current_user": current_user})
 
 
 @router.get("/survey")
-def survey(request: Request, current_user=Depends(get_current_user_safe)):
+def survey(request: Request, current_user=Depends(get_current_user_safe),
+           last_meeting=Depends(check_last_meeting_time)):
     if not current_user:
         return RedirectResponse(url="/api/v1/login")
     return templates.TemplateResponse("/survey/opros.html", {"request": request, "current_user": current_user})
