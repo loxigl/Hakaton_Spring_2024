@@ -10,6 +10,7 @@ class Worksheet(Base):
     given_name = Column(String)
     family_name = Column(String)
     phone_number = Column(String)
+    contacts = Column(ARRAY(String))
     chosen_datetime = Column(DateTime)
     meeting_duration = Column(String)
     hobby = Column(ARRAY(String))

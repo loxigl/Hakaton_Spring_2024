@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static',path='/partners/css/result.css') }}">
+    <title>random coffee</title>
+</head>
+{% set partner=partner[0] %}
+<body>
+<div class="wrapper">
+    <div class="text">
+        <h1>Партнёр для вашей встречи:</h1>
+    </div>
+    <div class="container">
+        <div class="result">
+            <p>Имя: {{ partner.worksheet.given_name+' '+partner.worksheet.family_name }}<span></span></p>
+            <p>Номер телефона: {{ partner.worksheet.phone_number }}<span></span></p>
+            <p>Ссылки на соц.сети: <span></span></p>
+            <p>Длительность встречи: {{ partner.worksheet.meeting_duration }}<span></span></p>
+            <p>Дата встречи: {{ partner.worksheet.chosen_datetime }}<span></span></p>
+            <p>Увлечения:<span>
+                    <section class="radio-section">
+                   {% for hobby in partner.worksheet.hobby %}
+                       {% if loop.index==0 %}
+                           <div id="inp-1" class="radio-item"><input name="radio" id="radio1" type="checkbox"><label
+                                   for="radio1">{{ hobby }}</label></div>
+                       {% else %}
+                           <div class="radio-item"><input name="radio" id="radio{{ loop.index }}"
+                                                          type="checkbox"><label
+                                   for="radio{{ loop.index }}">{{ hobby }}</label>
+                            </div>
+                       {% endif %}
+                   {% endfor %}
+                        <p>Формат встречи: {{ partner.worksheet.format }}<span></span></p>
+                    </section>
+            </span></p>
+        </div>
+        <div>
+            <a href="{{ url_for('index') }}">
+                <button class="butt">Назад</button>
+            </a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

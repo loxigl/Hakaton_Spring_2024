@@ -26,7 +26,7 @@ body, html{
 .logo{
     width: 88px;
     height: 88px;
-    
+
     margin-top: 40px;
 }
 .logo img{
@@ -90,7 +90,7 @@ a:hover{
     border: solid #FFDD00 10px;
     background-color: #fff;
     cursor: pointer;
-    
+
 }
 
 

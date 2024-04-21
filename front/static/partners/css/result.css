@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+*,*::before,*::after{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+body, html{
+    height: auto;
+    width: 100%;
+    font-family: "Montserrat";
+}
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+.text{
+    padding-top: 30px;
+    width: 1210px;
+    height: 142px;
+    background-color: #000;
+    border-radius: 100px;
+    color: #fff;
+    text-align: center;
+}
+.text h1{
+    font-size: 60px;
+}
+.container{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.result{
+    width: 1210px;
+    height: 999px;
+    background-color: #FFDD00;
+    border: solid 8px #000;
+    border-radius: 100px;
+    padding: 40px 70px;
+}
+.result p{
+    font-size: 60px;
+    color: #fff;
+    font-weight: 600;
+    margin-top: 30px;
+}
+.result span{
+    color:#000;
+}
+
+.radio-item [type="checkbox"] {
+	display: none;
+}
+.radio-item label {
+	padding: 20px 60px;
+	background: #fff;
+	border: 2px solid #E5E5E5;
+	border-radius: 50px;
+	cursor: pointer;
+	font-size: 25px;
+	font-weight: 400;
+	min-width: 250px;
+	position: relative;
+	transition: 0.4s ease-in-out 0s;
+    color: #A9A9A9;
+}
+.radio-item [type="checkbox"]:checked ~ label {
+	border-color: #000000;
+}
+.radio-item [type="checkbox"]:checked ~ label::before {
+	opacity: 1;
+	visibility: visible;
+	transform: scale(1);
+}
+.radio-section {
+    margin-top: 40px;
+	margin-bottom: 40px;
+}
+
+.butt{
+    width: 506px;
+    height: 107px;
+    background-color: #000;
+    color: #fff;
+    font-weight: 600;
+    font-family: 'Montserrat';
+    border-radius: 100px;
+    font-size: 48px;
+    margin-top: 50px;
+    transition: 0.5s;
+}
+.butt:hover{
+    background-color: #424242;
+    transition: 0.5s;
+}

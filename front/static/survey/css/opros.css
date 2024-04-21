@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+*,*::before,*::after{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+body, html{
+    height: auto;
+    width: 100%;
+    font-family: "Montserrat";
+}
+
+.container{
+    width: 682px;
+    height: 737px;
+    background-color: #FFDD00;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 100px;
+    padding: 70px 30px;
+}
+.container h1{
+    font-size: 32px;
+}
+.container textarea{
+    width: 521px;
+    height: 280px;
+    background-color: #EFEFEF;
+    border-radius: 50px;
+    padding: 30px 40px;
+    font-size: 24px;
+    font-family: 'Montserrat';
+    margin-top: 60px;
+}
+
+
+.simpl-rating{
+    position: relative;
+    font-size: 70px;
+    display: inline-block;
+}
+.simpl-rating::before{
+    content: "★★★★★";
+    display: block;
+
+}
+.simpl-rating__items{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: row-reverse;
+    overflow: hidden;
+}
+.simpl-rating__item{
+    position: absolute;
+    width: 0%;
+    height: 0%;
+    opacity: 0;
+    visibility: hidden;
+    top: 0;
+    left: 0;
+}
+.simpl-rating__label{
+    flex: 0 0 20%;
+    height: 100%;
+    cursor: pointer;
+    color: #FFFFFF;
+}
+.simpl-rating__label::before{
+    content: "★";
+    display: block;
+    transition: color 0.3s ease 0s;
+}
+.simpl-rating__item:checked,
+.simpl-rating__item:checked ~ .simpl-rating__label{
+    color: #000;
+}
+.simpl-rating__label:hover,
+.simpl-rating__label:hover ~ .simpl-rating__label,
+.simpl-rating__label:checked ~ .simpl-rating__label:hover{
+    color: #3a3a3a;
+}
+
+
+.container button{
+    width: 250px;
+    height: 58px;
+    border-radius: 50px;
+    font-family: 'Montserrat';
+    font-size: 24px;
+    color: #FFFFFF;
+    background-color: #000;
+    margin-top: 40px;
+    transition: 0.5s;
+}
+.container button:hover{
+    background-color: #212121;
+    transition: 0.5s;
+}
