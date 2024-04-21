@@ -1,8 +1,10 @@
+
 from datetime import datetime
 
 from fastapi import APIRouter, Depends
 from fastapi.requests import Request
 from starlette.responses import RedirectResponse
+
 
 from core.session_maker import get_db
 from core.template_base import templates
@@ -14,7 +16,9 @@ router = APIRouter()
 
 
 @router.get("/")
+
 def index(request: Request, current_user=Depends(get_current_user_safe), last_meeting=Depends(check_last_meeting_time)):
+
     return templates.TemplateResponse("/main_page/index.html", {"request": request, "current_user": current_user})
 
 
@@ -65,3 +69,4 @@ def partners(request: Request, current_user=Depends(get_current_user_safe), db=D
     return templates.TemplateResponse("/partners/base.html",
                                       {"request": request, "current_user": current_user, 'today': is_weekend(),
                                        'partner': partner, 'next_weekend': get_next_weekend()})
+

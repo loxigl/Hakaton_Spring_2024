@@ -1,4 +1,5 @@
 from datetime import timedelta, datetime
+
 from typing import Optional, Any
 
 from fastapi import HTTPException, Depends
@@ -10,6 +11,7 @@ from starlette.responses import RedirectResponse, Response
 from core.config import Config
 from core.session_maker import get_db
 from tokens.router import get_token, refresh_token_func
+
 from user.controller import get_user
 
 SECRET_KEY = Config.secret_key
@@ -66,6 +68,7 @@ def get_refresh_token_cookie(request: Request):
 
 
 def get_current_user(request: Request, token: Optional[str] = Depends(get_cookie), db=Depends(get_db)) -> dict | Any:
+
     if not token:
         raise HTTPException(status_code=403, detail="Not authenticated")
     try:
@@ -73,14 +76,18 @@ def get_current_user(request: Request, token: Optional[str] = Depends(get_cookie
         user_id = payload.get("user_id")
 
     except JWTError:
+
         refresh_jwt_token(request, db)
         return get_current_user(request)
+
     user = get_user(user_id, db)
 
     return user
 
 
+
 def get_current_user_safe(request: Request, token: Optional[str] = Depends(get_cookie), db=Depends(get_db)) -> dict:
+
     if not token:
         return None
     try:
@@ -88,7 +95,9 @@ def get_current_user_safe(request: Request, token: Optional[str] = Depends(get_c
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
         user_id = payload.get("user_id")
     except JWTError:
+
         refresh_jwt_token(request, db)
         return get_current_user(request)
+
     user = get_user(user_id, db)
     return user

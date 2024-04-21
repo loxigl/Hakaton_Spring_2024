@@ -27,6 +27,7 @@ def drop_db():
         drop_tables()
     except Exception as e:
         typer.echo(f"Error: {e}")
+
     typer.echo("Database dropped")
 
 

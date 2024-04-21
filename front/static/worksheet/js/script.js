@@ -48,6 +48,7 @@ async function submitForm() {
     }
     let selectedHobbies = Array.from(document.querySelectorAll('input[name="radio"]:checked'), input => input.nextElementSibling.textContent);
     let selectedFormat = document.querySelector('input[name="radio2"]:checked').nextElementSibling.textContent;
+
     formJson['hobby'] = selectedHobbies;
     formJson['format'] = selectedFormat;
     delete formJson['radio'];
@@ -55,7 +56,7 @@ async function submitForm() {
     let userId = await fetch(base + '/user/id').then(response => response.json()).then(data => data.user_id)
     let userHasWorksheet = await checkUserWorksheet();
     let method = userHasWorksheet ? 'PUT' : 'POST';
-    console.log(method)
+
     let response = await fetch(base + '/worksheet/' + userId, {
         method: method,
         headers: {
@@ -89,5 +90,3 @@ async function checkUserWorksheet() {
         });
     console.log(result)
     return result;
-
-}

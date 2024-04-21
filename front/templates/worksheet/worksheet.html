@@ -13,6 +13,7 @@
 <div class="container">
     <div class="yellow__block"><p>RANDOME COFFE</p></div>
     <div class="form__container">
+
         <form class="anketa" onsubmit="event.preventDefault(); submitForm()">
             <h1>Заполните анкету</h1>
 
@@ -48,6 +49,7 @@
                             input.style.paddingLeft = '20px';
                             this.parentNode.appendChild(input);
 
+
                         } else if (!this.checked) {
                             this.parentNode.removeChild(inputText);
                         }
@@ -55,16 +57,19 @@
                 });
             </script>
 
+
             <input type="datetime-local" class="input__style" name="chosen_datetime" placeholder="Время встречи">
 
             <select class="input__style" name="meeting_duration">
                 <option disabled hidden selected>Длительность встречи:</option>
+
                 <option>до 1 часа</option>
                 <option>от 1 часа до 2 часов</option>
                 <option>от 2 часов</option>
             </select>
             <div class="hobby">
                 <section class="radio-section">
+
 
                     {% for hobby in hobbys %}
                         {% if loop.index==0 %}
@@ -77,6 +82,7 @@
                             </div>
                         {% endif %}
                     {% endfor %}
+
                     <div id="inp-1" class="radio-item"><input name="radio" id="radio1" type="checkbox"><label
                             for="radio1">#спорт</label></div>
                     <div class="radio-item"><input name="radio" id="radio2" type="checkbox"><label for="radio2">#искусство</label>
@@ -103,7 +109,7 @@
                 </section>
             </div>
             <div class="format">
-                <div class="rad"><input name="radio2" id="radio12" type="radio"><label for="radio12">Онлайн</label>
+     <div class="rad"><input name="radio2" id="radio12" type="radio"><label for="radio12">Онлайн</label>
                 </div>
                 <div class="rad"><input name="radio2" id="radio13" type="radio"><label for="radio13">Оффлайн</label>
                 </div>
@@ -111,10 +117,13 @@
 
             <a>
                 <button class="subm" type="submit">Далее</button>
+
             </a>
         </form>
     </div>
 </div>
 </body>
+
 <script src="{{ url_for('static',path='/worksheet/js/script.js') }}"></script>
+
 </html>

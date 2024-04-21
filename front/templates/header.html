@@ -1,3 +1,4 @@
+
 <link href="{{ url_for('static',path='/css/style.css') }}" rel="stylesheet">
 <div class="header">
     <a href="{{ url_for("index") }}">
@@ -5,6 +6,7 @@
             <img src="{{ url_for('static',path='img/logo.png') }}" alt="#">
         </div>
     </a>
+
     <ul class="header__list">
         <li><a href="{{ url_for('worksheet') }}">{% if not current_user.worksheet %}
             Заполнить анкету
@@ -13,6 +15,7 @@
         {% endif %}
         </a></li>
         {% if current_user %}
+
             <li><a href="{{ url_for('partners') }}">Посмотреть профили</a></li>
         {% endif %}
     </ul>

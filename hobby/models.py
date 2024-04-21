@@ -1,3 +1,4 @@
+
 from core.db_base import Base
 from sqlalchemy import Column, Integer, String
 

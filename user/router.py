@@ -11,9 +11,8 @@ def _get_current_user(current_user=Depends(get_current_user)):
     return current_user
 
 
+
 router.include_router(random_alghoritms_router, tags=['random_alghoritms'])
-
-
 @router.get('/id/')
 def get_current_user_id(current_user=Depends(get_current_user)):
     return {'user_id': current_user.id}
