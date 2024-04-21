@@ -1,8 +1,14 @@
+
+import json
+
+
 from fastapi import APIRouter, Depends
 from google.auth.transport import requests
 from google.oauth2 import id_token
 from google_auth_oauthlib.flow import Flow
 from starlette.responses import RedirectResponse
+
+from login.controller import encrypt_refresh_token
 
 from core.config import Config
 from core.session_maker import get_db
@@ -36,10 +42,16 @@ async def callback(code: str, state: str, session=Depends(get_db)):
     flow.fetch_token(code=code)
     credentials = flow.credentials
 
+
+
     id_info = id_token.verify_oauth2_token(credentials.id_token, requests.Request(), clock_skew_in_seconds=1)
     user = create_user_from_google_info(id_info)
     response = RedirectResponse(url="/worksheet")
-    response.set_cookie(key=Config.user_cookie_key, value=create_access_token({'user_id': user.id}, id_info.get('exp')))
+
+    response.set_cookie(key=Config.user_cookie_key, value=create_access_token({'user_id': user.id}),
+                        expires=id_info.get('exp'))
+    response.set_cookie(key=Config.refresh_token_cookie, value=encrypt_refresh_token(credentials.refresh_token))
+
     if is_user_exists(user, session):
         return response
     create_user(user, session)
