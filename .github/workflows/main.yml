@@ -1,0 +1,30 @@
+name: Deploy to Server
+
+on:
+  push:
+    branches:
+      - dev  # Автодеплой срабатывает при пуше в ветку dev
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up SSH
+      uses: webfactory/ssh-agent@v0.7.0
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+    - name: Copy files to server
+      run: |
+        ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} "
+        mkdir -p /home/pora && exit"
+        rsync -avz --exclude '__pycache__' --exclude '.git' --exclude '.github' . ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }}:/home/pora/
+
+    - name: Deploy project
+      run: |
+        ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} "
+        cd /home/pora && docker-compose down && docker-compose up -d --build"
